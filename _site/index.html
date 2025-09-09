@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.14">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Next R-Lunches – R-Lunches</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-98bfa626b1068186620cc14e15ad040c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5fa0bfce0d45e6a5fbd3006a7ae0c93d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b56495a0803dbb5e776eb1f431ebc98a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5fa0bfce0d45e6a5fbd3006a7ae0c93d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R-Lunches</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">C’est quoi?</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./start_with_r.html"> 
+<span class="menu-text">Débuter avec R</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Next R-lunches</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./r_at_unige.html"> 
+<span class="menu-text">R à l’Unige</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./mailing_list.html"> 
+<span class="menu-text">Mailing list</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Next R-Lunches</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><img src="http://www.phdcomics.com/comics/archive/phd112107s.gif" class="img-fluid"></p>
+<p><strong>(Almost always) first Tuesday, each month, 12h15-13h30</strong></p>
+<p>Videos since fall semester 2023 meetings are available on YouTube in the following <a href="https://www.youtube.com/watch?v=bvG3JBe921E&amp;list=PLSYhtt87oGAJR6bOtjz5q8CCSPEDEQbGu">playlist</a>.</p>
+<section id="next-r-lunches" class="level2">
+<h2 class="anchored" data-anchor-id="next-r-lunches">Next R-lunches</h2>
+<p><strong>Academic year 2025-2026</strong></p>
+<ul>
+<li><p>Tuesday, 7 October 2025, 12:15-13:30 - UniMail M2150 - Introduction à R (<a href="https://github.com/steveC-ai">Steven Ceglia</a>, Data Analyst)</p></li>
+<li><p>Tuesday, 4 November 2025, 12:15-13:30 - UniMail MS030 - R workflow (<a href="https://vestin-hategekimana.netlify.app/">Vestin Hategekimana</a>)</p></li>
+</ul>
+</section>
+<section id="past-r-lunches" class="level2">
+<h2 class="anchored" data-anchor-id="past-r-lunches">Past R-lunches</h2>
+<p><strong>Academic year 2024-2025</strong></p>
+<ul>
+<li>Tuesday, 4 March, 2025 - Maraîchers 203 - <strong>TypR a type system for R</strong> (<a href="https://github.com/fabriceHategekimana">Fabrice Hategekimana</a>, University of Geneva).</li>
+<li>Tuesday, 10 December, 2024 - UniMail M5393 - <strong>Vapour a type system for R</strong> (<a href="https://john-coene.com/">Jean-Philippe Coene</a>, Opifex). The recording is <a href="https://unige.zoom.us/rec/share/X3wp5J5RV0805l7oqtU2pj1Q-cxFL1Fk3qTt6v8KPzxtIE0cNu9yDWwl7Y77NsU.quhr0JJK2EEYagtG">here</a> (code is S51U!!2s).</li>
+<li>Tuesday, 12 November, 2024 - UniMail M2193 - <strong>R workflow</strong> (<a href="https://vestin-hategekimana.netlify.app/">Vestin Hategekimana</a>, University of Geneva). Slides are available <a href="https://we-data-ch.github.io/worshop_2023_09_04/">here</a> and the recording is <a href="https://unige.zoom.us/rec/share/eFB7xH7ZL3EjMMswcFydmHWD8j7ZkrNEikWVIJfhXWNcFXv47vL_Go-__NxtK36m.-f1WtBSfA6LUL2W6">here</a> (code is tBjl1Bs%).</li>
+</ul>
+<p><strong>Academic year 2023-2024</strong></p>
+<ul>
+<li>Tuesday, 7 May, 2024 - UniMail M5393 - <strong>Intro to Text Analysis in R: Examples from Social Science Research on International Organizations, Cooperation, and Development</strong> (<a href="https://www.aliceiannantuoni.com/">Alice Iannantuoni</a>, University of Geneva).</li>
+<li>Tuesday, 26 March, 2024 - UniMail M5393 - <strong>How to Create Interactive Maps with R: Switzerland Use Cases</strong> (<a href="https://felixluginbuhl.com/">Felix Luginbuhl</a>, Data Scientist).</li>
+<li>Tuesday, 5 March, 2024 - UniMail M5393 - <strong>Quarto for Academics</strong> (<a href="https://www.linkedin.com/in/daniel-flores-agreda-680a9a109/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bj8KVAq2fT3uHgFnEq7XT%2FQ%3D%3D">Daniel Flores Agreda</a>, EPFL Extension School). <strong>exceptionally between 12:15-13:00</strong>. Presentation and examples are available <a href="https://github.com/dfloresag/lunch-quarto-for-academics">here</a>.</li>
+<li>Tuesday, 7 November, 2023 - UniMail M4389 - <strong>Measuring agreement, consensus, and polarization in ordinal data using R</strong> (<a href="https://druedin.com/">Didier Ruedin</a>, University of Neuchâtel). The recording is available <a href="https://unige.zoom.us/rec/share/gkg1GdETGSdalxrgwBUOe3zCrbSOwfQANs_gfYnhL2leZNDq4hOgtOqqNL0zx9PM.sAVBNGt69NIXAhRh">here</a>.</li>
+<li>Tuesday, 3 October, 2023 - UniMail M4389 - <strong>Chi-square analysis for rater agreement, confusion matrices, and paired categorical data</strong> (<a href="https://www.unige.ch/cisa/index.php?cID=3542">Ben Meuleman</a>, University of Geneva). Slides are available <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2023Octobre_BM_Rlunch_paired_categorical.pptx">here</a>, code <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2023Octobre_square_tests.r">here</a> and recording <a href="https://unige.zoom.us/rec/share/lqL9wQ85hPwg64OMXy3Z3h4tE0HSLw9VUlHYbvDWPEmj840C3ViNTCY1n9h0MtFa.TQDXvOeQXkaVr6YX">here</a>.</li>
+</ul>
+<p><strong>Academic year 2022-2023</strong></p>
+<ul>
+<li><p>Tuesday, 6 June, 2023 - <a href="https://unige.zoom.us/j/68920636492?pwd=ZmlaNnhvVTRaQm9VdzEvUVVCNHdVQT09">Zoom</a> -&nbsp;<strong>Unravelling the power of Lists in R: The creation of the CORESIDENCE Database</strong> (<a href="https://drive.google.com/file/d/1X4UVu9NyE9rozbZ_jrmOaaI63KPE5Uwv/view?usp=sharing">Juan Galeano</a>, Centre for Demographic Studies, Barcelona).</p></li>
+<li><p>Tuesday, 2 May, 2023 - UniMail M3220 - <strong>{hayalbaz} scraping dynamic web page without dependencies in R</strong> (<a href="https://vestin-hategekimana.netlify.app/">Vestin Hategekimana</a>, University of Geneva).</p></li>
+<li><p>Tuesday, 4 April, 2023 - UniMail M3220 - <strong>How to freely and easily host your shiny application in 10 minutes</strong> (<a href="https://david-munoztord.com/">David Munoz</a>, University of Geneva). Slides are available <a href="https://we-data-ch.github.io/Web_Deployment_With_R/R-Lunch">here</a>. Presentation recording is <a href="https://unige.zoom.us/rec/share/bmPWK9YqdK9FI74DtVnhEgaca8isNWNkjwxjVP2TeRJ_TnRsRp3HpRb5DFuYQZXO.hBVyShgZ9SLyqESP">here</a></p></li>
+<li><p>Tuesday, 7 March, 2023 - UniMail M3220 - <strong>Easily create interactive charts in R by leveraging the ‘Echarts Javascript’ library</strong> - (<a href="https://john-coene.com/">Jean-Philippe Coene</a>, Opifex). Presentation recording is <a href="https://unige.zoom.us/rec/share/4Udk3_8-brGTc9EI5icY3wks4XjaSUC5c7DqpgRiAaD3y5CJZHxgi_Ep2L2g7-pd.J-w8Q7QDb3qECWCr">here</a>.</p></li>
+<li><p>Tuesday, 28 February, 2023 - 66 Boulevard Carl-Vogt salle 2 - <strong>Using vim R</strong> (<a href="https://github.com/fabriceHategekimana">Fabrice Hategekimana</a>, University of Geneva) - <strong>exceptionally between 12:15-13:00</strong>.</p></li>
+</ul>
+<p><strong>Academic year 2021-2022</strong></p>
+<ul>
+<li>December 14, 2021 - <a href="https://unige.zoom.us/j/66111435520?pwd=Q0xtUTBUNFdBWUtkaVN2N1FuOXJsQT09">Zoom</a> - <strong>Mother’s Little Helper: git/GitHub</strong> (<a href="https://irudnyts.github.io/">Iegor Rudnytskyi</a>, EPFL Extension School</li>
+</ul>
+<p><strong>Academic year 2020-2021</strong></p>
+<ul>
+<li><p>May 25, 2021 - <a href="https://unige.zoom.us/j/95992195473?pwd=eWVEdmw0YUg4Q04vemgvS29VSitUZz09">Zoom</a> - <strong>Extending R with C++</strong> - Lionel Voirol and Samuel Orso, University of Geneva - <a href="https://unige.zoom.us/rec/share/918RNyUbIbYD5MNNU8AqAnEJ74SsqvxpNf8m9R4s6_KP91HjmG_hDa5OQ9uGtCUw.NdNETpeXxS3WzDOk">presentation recording</a></p></li>
+<li><p>April 13, 2021 - <a href="https://unige.zoom.us/j/96253051411?pwd=dElvR0N0ZDlIYmJLdkhMN24vS3JKdz09">Zoom</a> - Yann Sagon, HPC University of Geneva - Check the <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2021Avril_Cours_GetFamiliarWithBaobab.pptx">slides</a> and the <a href="https://unige.zoom.us/rec/share/96IB3RX1XGduE9F3Bq572QKq82a9JG0bkpLKj5b6d9cFLuXFH9kRGgsslc_-4cQa.s68-otW_M2Do28m8">presentation recording</a></p></li>
+<li><p>February 2, 2021 - <a href="https://unige.zoom.us/j/92548162112?pwd=UHB6N2daMWJ3V3VWRnpOWVVNaUJnUT09">Zoom</a> - <strong>Working with Spatial Data with R: an introduction</strong> (<a href="https://github.com/gruggeri">Giulia Ruggeri</a>, EPFL Extension School) - Check <a href="https://github.com/gruggeri/r_lunch_feb2021">R code and slides</a> and <a href="https://unige.zoom.us/rec/share/BTFhNKQrFTvbJYJGd8jL2l8Bga2nRkcPrnnk6z6v8I0iEpC7ll7VlHv1VhIAVvr9.eH8E1E0Ncf_LiMyI">presentation recording</a></p></li>
+<li><p>December 1, 2020 - UniMail MR160 - <a href="https://unige.zoom.us/j/97104023336?pwd=ZHI1Um8waThtcTgxRUhLRWtHWHduZz09">Zoom</a> - <strong>Deep learning with R</strong> (<a href="https://irudnyts.github.io/">Iegor Rudnytskyi</a>, EPFL Extension School and HEC Lausanne) - Check the <a href="https://github.com/irudnyts/r2d2">slides</a> and the <a href="https://unige.zoom.us/rec/share/CdO68yhvN7iCAfgeuGX7hba4OllEEWAw_tJtJa6EQwSp5ETh-oQcYVRcUdfetndC.pnDX8JTdf9AECzq3">presentation recording</a></p></li>
+<li><p><strong>Monday</strong> November 9, 2020 - UniMail M1160 - <a href="https://unige.zoom.us/j/92317617443?pwd=cEFSelZsdVpRaDVyanlNQk5XQXdwdz09">Zoom</a> - <strong>Web scraping with R</strong> (<a href="http://roygava.com/">Roy Gava</a>, University of St.&nbsp;Gallen and University of Geneva) - Check the <a href="http://roygava.com/webscraping-lunch/">slides</a></p></li>
+<li><p>October 6, 2020 - UniMail MR160 - <a href="https://unige.zoom.us/j/99024405323?pwd=VVpPYWJQS3NKZlRmelhCTzh1K05Jdz09">Zoom</a> - <strong>Introduction to R for beginners</strong> (<a href="https://www.unige.ch/fapse/mad/equipe/renaud/">Olivier Renaud</a>, <a href="https://www.unige.ch/fapse/mad/equipe/sami-capderou/">Sami Capderou</a> et <a href="https://www.unige.ch/fapse/mad/equipe/frossard/">Jaromil Frossard</a>, Unige) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2020Octobre_RenaudCapderouFrossard_IntroR.zip">Download data and documents (FR and EN)</a></p></li>
+</ul>
+<p><strong>Academic year 2019-2020</strong></p>
+<ul>
+<li>March 3, 2020 - <strong>Mixed models</strong> (<a href="https://www.linkedin.com/in/marc-olivier-boldi-7a39564/?originalSubdomain=ch">Marc-Olivier Boldi</a>, HEC Lausanne) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2020Mars_MOBoldi_HandsOn.html">Download the script</a> - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2020Mars_MOBoldi_data_lunchR.zip">Download the data</a></li>
+<li>February 18, 2020 - <strong>Alternative syntaxes with the tidyverse</strong> (<a href="https://exts.epfl.ch/who-we-are/team">Xavier Adam</a>, EPFL-Campus biotech)</li>
+<li>December 3, 2019 - <strong>Topics in machine learning - Piecewise linear regression with splines</strong> (<a href="https://www.unige.ch/cisa/members/meuleman-ben/">Ben Meuleman</a>, Swiss Center for Affective Sciences) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2019December_BMeuleman_Rlunch_Splines.pdf">Download the slides</a></li>
+<li>November 26, 2019 - <strong>‘caret’ wrap: a healthy lunch for a data scientist</strong> (<a href="https://irudnyts.github.io/about/">Iegor Rudnytskyi</a>, HEC Lausanne) - <a href="https://github.com/irudnyts/caret">Download the slides and the script</a></li>
+<li>October 29, 2019 - <strong>Striving to Demystify Bayesian Computational Modelling (in RStan)</strong> (<a href="https://www.linkedin.com/in/mwirthlin/">Marco Wirthlin</a>, Freelance Data Scientist) - Download <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2019October_MWirthlin_UNIGE_R_Lunch_online_version.pdf">the slides</a> and <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2019October_MWirthlin_IntroBayesianComputation_Wirthlin.pdf">Marco’s introductory paper to bayesian computation</a></li>
+<li>October 1st, 2019 - UniMail M4389 - <strong>Introduction to R for beginners</strong> (<a href="https://www.unige.ch/fapse/mad/equipe/sami-capderou/">Sami Capderou</a> et <a href="https://www.unige.ch/fapse/mad/equipe/frossard/">Jaromil Frossard</a>, Unige) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2019October_MaterialIntro_R_RStudio_Rlunch19.zip">Download data and documents (FR and EN)</a></li>
+</ul>
+<p><strong>Academic year 2018-2019</strong></p>
+<ul>
+<li>4 juin 2019 - [Analyse de données] - <strong>Common pitfalls in sentiment analysis</strong> (<a href="https://people.epfl.ch/martin.muller">Martin Müller</a>, EPFL-Campus biotech) - <a href="https://mar-muel.github.io/pitfalls_in_sentiment_analysis/index.html">Visualiser la présentation</a></li>
+<li>14 mai 2019 - [Méthodo R] - <strong>Data validation in R</strong> (<a href="https://www.linkedin.com/in/bobby-stuijfzand-60863448/">Bobby Stuijfzand</a>, freelance data scientist, Lausanne) - <a href="https://bobbyglenns.github.io/190514-R-lunch-geneva/presentation_online.html">Visualiser la présentation</a></li>
+<li>2 avril 2019 - [Analyse de données] - <strong>Network analysis with the igraph package</strong> (<a href="https://applicationspub.unil.ch/interpub/noauth/php/Un/UnPers.php?PerNum=1063847&amp;LanCode=37&amp;menu=curri">Yannick Rochat</a>, UNIL) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2019Avril_Rochat_igraph.pdf">Télécharger la présentation</a></li>
+<li>5 mars 2019 - [Méthodo R] - <strong>R markdown</strong> (<a href="https://stephaneguerrier.com/index.html">Stéphane Guerrier</a>, GSEM) - <a href="https://smac-group.github.io/ds/rmarkdown.html">Ressources en ligne</a></li>
+<li>5 février 2019 - [Analyse de données] - <strong>Statistical inference in the tidyverse framework: the Infer package</strong> (<a href="https://www.hug-ge.ch/epidemiologie-clinique/elise-dupuis-lozeron-phd">Elise Dupuis-Lozeron</a>, HUG) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2019Fevrier_EDupuisLozeron_R_lunch_Git/Infer_Pres.html">Visualiser la présentation</a></li>
+<li><em>1er janvier 2019 - Pause</em></li>
+<li>4 décembre 2018 - [Méthodo R] - <strong>Workflow &amp; best practices for projects</strong> (<a href="https://sinarueeger.github.io/">Sina Rüeger</a>, EPFL) - <a href="https://sinarueeger.github.io/20181204-r-lunchs-gva/#1">Télécharger la présentation</a></li>
+<li>6 novembre 2018 - [Méthodo R] - <strong>Functional R with pipes and purrr</strong> (<a href="https://exts.epfl.ch/who-we-are/team">Xavier Adam</a>, EPFL-Campus biotech)</li>
+<li>2 octobre 2018 - [Analyse de données] - <strong>Introduction à R pour les débutants</strong> (<a href="https://www.unige.ch/fapse/mad/equipe/renaud/">Olivier Renaud</a> et <a href="https://www.unige.ch/fapse/mad/equipe/sami-capderou/">Sami Capderou</a>, Unige) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Octobre_MaterialIntro_R_RStudio_Rlunch18.zip">Télécharger les documents et jeux de données</a></li>
+</ul>
+<p><strong>Academic year 2017-2018</strong></p>
+<ul>
+<li>5 juin 2018 - [Analyse de données] - <strong>Analyse de réseaux avec R</strong> (<a href="https://www.unige.ch/sciences-societe/socio/fr/mariondeville/">Marion Deville</a>, Institut de recherches sociologiques) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Juin_MDeville_intro_reseaux_spnet.pdf">Télécharger la présentation</a></li>
+<li>8 mai 2018 - [Analyse de données] - <strong>Machine Learning: nearest neighbors and random forests</strong> (<a href="https://www.researchgate.net/profile/Ben_Meuleman">Ben Meuleman</a>, Faculté de Psychologie et Sciences de l’Education) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Mai_Meulemann_Intro_machine_learning.pdf">Télécharger la présentation</a></li>
+<li>24 avril 2018 - [Méthodo R] - <strong>Building a web application with Shiny</strong> (<a href="https://wp.unil.ch/sgg/elisabeth-dahlqwist/">Elisabeth Dahlqwist</a>, Karolinska Institutet, Stockholm) - <a href="https://github.com/rladies/meetup-presentations_lausanne/tree/master/20180314_shiny">Télécharger la présentation</a></li>
+<li>10 avril 2018 - [Méthodo R] - Séance sur la gestion des données. <strong>Jongler avec dplyr, tidyr</strong> (<a href="http://ch.linkedin.com/in/pafonta">Pierre-Alexandre Fonta</a>, EPFL), et <strong>data table</strong> (<a href="https://www.researchgate.net/profile/Denis_Mongin/info">Denis Mongin</a>, Département de médecine interne) - <a href="https://github.com/pafonta/r-lunch-10-04-18">Télécharger les ressources pour dplyr et tidyr</a> - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Avril_Mongin_data_table.zip">Télécharger les ressources pour data.table</a></li>
+<li>6 mars 2018 - [Analyse de données] - <strong>Modèles mixtes 2/2 : Pratique</strong> (<a href="https://www.unige.ch/gsem/rcs/members2/profs/marc/">Marc-Olivier Boldi</a>, GSEM) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Mars_MOBoldi_HandsOn.html">Télécharger le script</a> - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Mars_MOBoldi_data.zip">Télécharger les données</a></li>
+<li>13 février 2018 [Méthodo R] - <strong>Graphiques sous R</strong> (<a href="https://www.linkedin.com/in/jean-christophe-aubert-7295453b/?ppe=1">Jean-Christophe Aubert</a>, mathématicien) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2018Mars_JCAubert_ggplot.zip">Télécharger les ressources</a></li>
+<li><em>6 février 2018 - <a href="https://statistique.cuso.ch/index.php?id=2688&amp;tx_displaycontroller%5BshowUid%5D=3840">Semaine de formation CUSO en statistiques</a>. Séance remplacée par le 13 février</em>.</li>
+<li><em>2 janvier 2018 Pause</em></li>
+<li>5 décembre 2017 [Analyse de données] - <strong>Tests de permutations</strong> (<a href="https://www.unige.ch/fapse/mad/equipe/frossard/">Jaromil Frossard</a>, Faculté de psychologie et des sciences de l’éducation) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2017Decembre_Frossard_presentation_permuco.pdf">Télécharger la présentation</a> - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2017Decembre_Frossard_permuco.R">Télécharger le script</a></li>
+<li>21 novembre 2017 [Analyse de données] - <strong>Systèmes d’Information Géographique</strong> (<a href="https://www.unige.ch/envirospace/people/lehmann/">Anthony Lehmann</a>, Environmental Sciences) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2017Novembre_Lehmann_Dejeuner-R-Geotatistics-with-R.pdf">Télécharger la présentation</a> - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2017Novembre_Lehmann_data.zip">Télécharger les données</a></li>
+<li>3 octobre 2017 [Méthodo R] - <strong>Introduction à R pour les débutants</strong> (<a href="https://www.unige.ch/fapse/mad/equipe/renaud/">Olivier Renaud</a> et <a href="https://www.unige.ch/fapse/mad/equipe/descary/">Marie-Hélène Descary</a>, Faculté de Psychologie et Sciences de l’Education) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2017OctobreORenaudMHDescary_introductionR.zip">Télécharger le tutoriel et les données</a></li>
+</ul>
+<p><strong>Academic year 2016-2017</strong></p>
+<ul>
+<li>6 juin 2017 [Analyse de données] <strong>Bayesian methods for R 2/2 - practice</strong> (<a href="https://unige.ch/gsem/iom/members1/professors/scheibehenne-benjamin">Benjamin Scheibehenne</a>, GSEM) - <a href="https://github.com/use-r-carlvogt/use-r-carlvogt.github.io/blob/master/PDFs/2017Juin_Scheibehenne_Bayesian_methods_practice.zip">Télécharger la présentation et les scripts</a></li>
+<li>2 mai 2017 [Analyse de données] <strong>Bayesian methods for R 1/2 - theory</strong> (<a href="https://unige.ch/gsem/iom/members1/professors/scheibehenne-benjamin">Benjamin Scheibehenne</a>, GSEM) - <a href="https://use-r-carlvogt.github.io/PDFs/2017Mai_Scheibehenne_Bayesian_methods.pdf">Télécharger la présentation</a></li>
+<li>4 avril 2017 [Analyse de données] <strong>Régressions robustes sous R</strong> (<a href="https://www.unige.ch/gsem/rcs/members2/profs/eva-cantoni/">Eva Cantoni</a>, GSEM) - <a href="https://use-r-carlvogt.github.io/PDFs/2017Avril_Cantoni_Rlunch.pdf">Télécharger la présentation</a></li>
+<li>7 mars 2017 [Méthodo R] <strong>Création de packages sous R</strong> (<a href="https://www.unige.ch/sciences-societe/ideso/membres/remund/">Adrien Remund</a>, Institut de Démographie et Socioéconomie) - <a href="https://use-r-carlvogt.github.io/PDFs/2017Mars_Remund_Creer%20packages.pdf">Télécharger la présentation</a></li>
+<li>7 février 2017 [Méthodo R] <strong>Collecter des données Twitter avec R</strong> (<a href="http://citizensciences.net/elise-tancoigne/">Elise Tancoigne</a>, Projet Histoire des Sciences Citoyennes, Carl Vogt) - <a href="https://use-r-carlvogt.github.io/PDFs/2017Fevrier_Tancoigne_Twitter.R">Télécharger le script</a> - <a href="https://use-r-carlvogt.github.io/PDFs/2017Fevrier_Tancoigne_Twitter.pdf">Télécharger la présentation</a></li>
+<li><em>10 janvier 2017 Pause</em></li>
+<li>6 décembre 2016 [Analyse de données] <strong>Analyse de séquences (package <a href="http://traminer.unige.ch/index.shtml">TraMineR</a>)</strong> (<a href="https://www.unige.ch/sciences-societe/ideso/membres/matthias-studer">Matthias Studer</a>, Institut de Démographie et Socioéconomie) - <a href="https://use-r-carlvogt.github.io/PDFs/2016Decembre_Studer_mvadexemple.R">Télécharger le script</a> - Télécharger les présentations : <a href="https://use-r-carlvogt.github.io/PDFs/2016Decembre_Studer_Seq-Intro.pdf">Analyses de séquences</a> - <a href="https://use-r-carlvogt.github.io/PDFs/2016Decembre_Studer_DejR-seqdef.pdf">Package TraMineR</a></li>
+<li>1er novembre 2016 [Analyse de données] <strong>Modèles à équations structurales avec R</strong> (package <a href="http://lavaan.ugent.be/index.html">lavaan</a>) (<a href="http://www.unige.ch/fapse/mad/equipe/ghisletta/">Paolo Ghisletta</a>, Faculté de psychologie et des sciences de l’éducation) - <a href="https://use-r-carlvogt.github.io/PDFs/2016Novembre_Ghisletta_SEM_R_lavaan_script.pdf">Télécharger le script</a> - <a href="https://use-r-carlvogt.github.io/PDFs/2016Novembre_Ghisletta_SEM_R_lavaan.pdf">Télécharger la présentation</a></li>
+<li>4 octobre 2016 [Analyse de données] <strong>Ordinations multi-tableaux</strong> (<a href="http://leba.unige.ch/team/ecastella/">Emmanuel Castella</a>, ISE/Forel) <a href="https://use-r-carlvogt.github.io/PDFs/2016Octobre_ECastella_multiscript.R">Télécharger le script</a> - <a href="https://use-r-carlvogt.github.io/PDFs/2016Octobre_ECastella_MultiTabppt.pdf">Télécharger le PDF</a></li>
+</ul>
+<p><strong>Academic year 2015-2016</strong></p>
+<ul>
+<li>13 juin 2016 : [Analyse de données] <strong>Modèles mixtes</strong> (<a href="https://www.unige.ch/gsem/rcs/members2/profs/marc/">Marc-Olivier Boldi</a>, GSEM) <a href="https://use-r-carlvogt.github.io/PDFs/2016Juin_MOBoldi_codeR.R">Télécharger le script</a> - <a href="https://use-r-carlvogt.github.io/PDFs/2016Juin_MOBoldi_Data1.csv">Télécharger le jeu de données “vins”</a></li>
+<li>23 mai 2016 : [Méthodo R] <strong>Répétitions dans un script: fonctions, boucles et apply</strong> (<a href="http://leba.unige.ch/team/dhugpeter/">Dorothea Hug Peter</a>, ISE/Forel) <a href="https://use-r-carlvogt.github.io/PDFs/2016Mai_DorHugPeter_handout_loops.pdf">Télécharger le PDF</a></li>
+<li>25 avril 2016 : [Analyse de données] <strong>Pearson (1901) ou quelques considérations sur les méthodes d’ordination dans R</strong> (<a href="http://leba.unige.ch/team/ecastella/">Emmanuel Castella</a>, ISE/Forel) <a href="https://use-r-carlvogt.github.io/PDFs/2016Avril_EmmCastella_RCLUB-ordination.pdf">Télécharger le PDF</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "R-Lunches"
+  navbar:
+    left:
+      - href: about.qmd
+        text: C'est quoi?
+      - href: start_with_r.qmd
+        text: Débuter avec R
+      - href: index.qmd
+        text: Next R-lunches
+      - href: r_at_unige.qmd
+        text: R à l'Unige
+      - href: mailing_list.qmd
+        text: Mailing list
+
+format:
+  html:
+    theme:
+      light: [lumen, light.scss]
+      dark: [lumen, dark.scss]
+    max-width: 2000px
+    fontsize: 24px
+
+editor: visual
+
