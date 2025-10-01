@@ -6,13 +6,13 @@ website:
   navbar:
     left:
       - href: about.qmd
-        text: C'est quoi?
+        text: What? / Quoi?
       - href: start_with_r.qmd
-        text: Débuter avec R
+        text: Learn / Apprendre
       - href: index.qmd
-        text: Next R-lunches
+        text: Next / Prochain R-lunches
       - href: r_at_unige.qmd
-        text: R à l'Unige
+        text: Unige
       - href: mailing_list.qmd
         text: Mailing list
 

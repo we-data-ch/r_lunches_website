@@ -1,10 +1,30 @@
 ---
-title: "C'est quoi?"
+title: "What is it? / C'est quoi?"
 ---
 
 ![](http://www.phdcomics.com/comics/archive/phd113007s.gif)
 
-Les déjeuners R sont des rencontres mensuelles pluridisciplinaires à destination des chercheurs, doctorants et étudiants souhaitant approfondir leur connaissance de R et de l’analyse de données. L’idée est de partager nos savoir-faire, réaliser un travail de veille, ainsi que de découvrir les approches d’autres disciplines sur des problèmes qui peuvent être communs. L’occasion que chacun présente quelque chose qu’il a découvert, qu’il souhaiterait approfondir, ou même sur lequel il bute… [tout ce qui fournit discussion et échange est bienvenu](/mailing_list.qmd) :)
+\[En\] R Lunches are monthly multidisciplinary meetings aimed at researchers, PhD students, and students who wish to deepen their knowledge of R and data analysis. The idea is to share our expertise, carry out some kind of information gathering, and discover approaches from other disciplines on problems that may be common. Everyone is welcome to present something they have discovered, something they would like to explore further, or even something they are stuck on — anything that sparks discussion and exchange is encouraged.
+
+The language of presentation (French or English) and discussion will be adapted to the audience and the speaker.
+
+**When?** Every first Tuesday of the month, 12:15–13:30
+
+**Where?** UniMail - Room: see the program
+
+**How?** Each lunch consists of a presentation followed by a discussion. Methodological sessions specific to R (ggplot, loops and functions...) will alternate with sessions focused on a data analysis question (factor analysis, regressions...).
+
+**Organization:**
+
+-   Vestin Hategekimana (PhD student at Unige, vestin.hategekimana\@unige.ch)
+
+**To stay informed:**
+
+-   Liste [use-r-carlvogt](http://listes.unige.ch/sympa/info/use-r-carlvogt)
+
+------------------------------------------------------------------------
+
+\[Fr\] Les déjeuners R sont des rencontres mensuelles pluridisciplinaires à destination des chercheurs, doctorants et étudiants souhaitant approfondir leur connaissance de R et de l’analyse de données. L’idée est de partager nos savoir-faire, réaliser un travail de veille, ainsi que de découvrir les approches d’autres disciplines sur des problèmes qui peuvent être communs. L’occasion que chacun présente quelque chose qu’il a découvert, qu’il souhaiterait approfondir, ou même sur lequel il bute… [tout ce qui fournit discussion et échange est bienvenu](/mailing_list.qmd) :)
 
 La langue de présentation (français ou anglais) et de discussion sera adaptée à l’audience et au conférencier.
 
@@ -16,8 +36,7 @@ La langue de présentation (français ou anglais) et de discussion sera adaptée
 
 **Organisation :**
 
--   [Vestin Hategekimana](https://vestin-hategekimana.netlify.app/) (doctorant Unige, vestin.hategekimana@unige.ch)
-
+-   [Vestin Hategekimana](https://vestin-hategekimana.netlify.app/) (doctorant Unige, vestin.hategekimana\@unige.ch)
 
 **Pour rester informé.e.s :**
 
