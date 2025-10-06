@@ -2,10 +2,14 @@
 title: "Mailing-list"
 ---
 
-### \[En\] A suggested theme? A question, a need?
+### English
 
-Write to us (emails [here](http://use-r-carlvogt.github.io/about/)) or use the information, help, and distribution list [**use-r-carlvogt**](http://listes.unige.ch/sympa/info/use-r-carlvogt)
+### A suggested theme? A question, a need?
 
-### \[Fr\] Une suggestion de thématique ? Une question, un besoin ?
+Write to us (emails [here](http://use-r-carlvogt.github.io/about/)) or use the i**nformation, help, and distribution** list [**use-r-carlvogt**](http://listes.unige.ch/sympa/info/use-r-carlvogt)
+
+### French
+
+### Une suggestion de thématique ? Une question, un besoin ?
 
 Ecrivez-nous (e-mails [ici](http://use-r-carlvogt.github.io/about/)) ou utilisez la **liste d’information, entraide et diffusion [use-r-carlvogt](http://listes.unige.ch/sympa/info/use-r-carlvogt)**
