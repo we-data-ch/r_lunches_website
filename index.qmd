@@ -20,9 +20,7 @@ Les vidéos des rencontres depuis le semestre d'automne 2023 sont disponibles su
 
 **Academic year 2025-2026**
 
--   Tuesday, 7 April 2026, 12:15-13:30 - UniMail M2150 - **Bioequivalence in Practice: From TOST to Modern Corrections with R Applications** ([Younes Boulaguiem](Ok pour le présentiel, et mon site est: younesboulaguiem.com), postdoc researcher in statistics)
-
--   Tuesday, 5 May, 2026, 12:15-13:30 - UniMail M3220 - **Help Me Help You: R Reproducible Examples and Debugging** ([David Munoz](https://david-munoztord.com/), Data Scientist)
+-   Tuesday, 5 May, 2026, 12:15-13:30 - UniMail M3220 - **Help Me Help You: R Reproducible Examples and Debugging** ([David Muñoz Tord](https://david-munoztord.com/), Data Scientist)
 
 ## Past R-lunches / Précédents R-lunches
 
@@ -33,6 +31,8 @@ Les vidéos des rencontres depuis le semestre d'automne 2023 sont disponibles su
 -   Tuesday, 4 November 2025, 12:15-13:30 - UniMail MS030 - **R workflow** ([Vestin Hategekimana](https://vestin-hategekimana.netlify.app/))
 
 -   Tuesday 2 December 2025, 12:15-13:30 - UniMail (to be added) - **Introduction to data visualization with R** ([Vestin Hategekimana](https://vestin-hategekimana.netlify.app/))
+
+-   Tuesday, 7 April 2026, 12:15-13:30 - UniMail M2150 - **Bioequivalence in Practice: From TOST to Modern Corrections with R Applications** ([Younes Boulaguiem](Ok pour le présentiel, et mon site est: younesboulaguiem.com), postdoc researcher in statistics)
 
 **Academic year 2024-2025**
 
